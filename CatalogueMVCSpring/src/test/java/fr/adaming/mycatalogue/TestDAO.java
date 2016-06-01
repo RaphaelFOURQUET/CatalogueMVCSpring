@@ -35,9 +35,6 @@ public class TestDAO {
 	@Test
 	public void test() {
 		try {
-//			context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//			metier=(IAdminCategoriesMetier) context.getBean("metier");
-
 			List<Categorie> cats1=metier.listCategories();
 
 			c1 = metier.ajouterCategorie(new Categorie("Ordinateurs", "Des Ordinateurs de qualité.", "", null));
@@ -47,10 +44,6 @@ public class TestDAO {
 
 			assertTrue(cats2.size()==cats1.size()+2);
 
-//			this.metier.supprimerCategorie(c1);
-//			this.metier.supprimerCategorie(c2);
-
-//			context.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			assertTrue(e.getMessage(),false);

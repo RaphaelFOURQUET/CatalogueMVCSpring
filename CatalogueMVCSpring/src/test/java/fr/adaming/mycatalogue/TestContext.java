@@ -5,10 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class FirstTest {
+public class TestContext {
 
 	@Test
-	public void test() {
+	public void test() {	//Teste l'acces et la vaidite de notre applicationContext.xml
 		try {
 			ClassPathXmlApplicationContext app= new ClassPathXmlApplicationContext("applicationContext.xml");
 			assertTrue(true);
