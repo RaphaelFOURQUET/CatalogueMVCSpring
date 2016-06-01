@@ -78,6 +78,14 @@ public class Categorie implements Serializable {
 		
 	}
 	
+	public Categorie(String nomCategorie, String description, String nomPhoto, byte[] photo) {
+		super();
+		this.nomCategorie = nomCategorie;
+		this.description = description;
+		this.nomPhoto = nomPhoto;
+		this.photo = photo;
+	}
+
 	public Categorie(String nomCategorie, String description, Collection<Produit> produits) {
 		super();
 		this.nomCategorie = nomCategorie;

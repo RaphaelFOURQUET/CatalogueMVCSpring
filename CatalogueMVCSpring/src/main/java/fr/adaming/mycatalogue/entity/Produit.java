@@ -17,9 +17,15 @@ public class Produit implements Serializable {
 	@NotEmpty
 	private String designation;
 	
+	private String description;
+	
 	private double prix;
 	
+	private String photo;
+	
 	private int quantite;
+	
+	private boolean selectionne;
 	
 	@ManyToOne @JoinColumn(name="ID_CAT")
 	private Categorie categorie;
@@ -62,6 +68,30 @@ public class Produit implements Serializable {
 		return idProduit;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public boolean isSelectionne() {
+		return selectionne;
+	}
+
+	public void setSelectionne(boolean selectionne) {
+		this.selectionne = selectionne;
+	}
+
 	//CONSTRUCTEURS
 	public Produit() {
 		
@@ -72,6 +102,28 @@ public class Produit implements Serializable {
 		this.designation = designation;
 		this.prix = prix;
 		this.quantite = quantite;
+		this.categorie = categorie;
+	}
+	
+	public Produit(String designation, String description, double prix, String photo, int quantite, boolean selectionne) {
+		super();
+		this.designation = designation;
+		this.description = description;
+		this.prix = prix;
+		this.photo = photo;
+		this.quantite = quantite;
+		this.selectionne = selectionne;
+	}
+
+	public Produit(String designation, String description, double prix, String photo, int quantite, boolean selectionne,
+			Categorie categorie) {
+		super();
+		this.designation = designation;
+		this.description = description;
+		this.prix = prix;
+		this.photo = photo;
+		this.quantite = quantite;
+		this.selectionne = selectionne;
 		this.categorie = categorie;
 	}
 
