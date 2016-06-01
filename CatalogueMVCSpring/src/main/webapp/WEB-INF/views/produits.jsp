@@ -22,7 +22,7 @@
 				<td><f:errors path="designation" cssClass="errors"></f:errors></td>
 			</tr>
 			<tr>
-				<td>Catégorie</td>			<!-- modif id -> nom : id ne marche pas, nom oui : http://stackoverflow.com/questions/14128572/spring-and-forms-with-select -->
+				<td>Catégorie</td>
 				<td><f:select path="categorie.idCategorie"
 						items="${categories}" itemValue="idCategorie"
 						itemLabel="nomCategorie"></f:select></td>
