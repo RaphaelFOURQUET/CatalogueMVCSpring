@@ -52,6 +52,12 @@ public class Commande implements Serializable {
 	public Long getIdCommande() {
 		return idCommande;
 	}
+	
+	
+
+	public void setIdCommande(Long idCommande) {
+		this.idCommande = idCommande;
+	}
 
 	//CONSTRUCTEURS
 	public Commande() {

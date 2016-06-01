@@ -49,6 +49,12 @@ public class LigneCommande implements Serializable {
 	public Long getId() {
 		return id;
 	}
+	
+	
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	//CONSTRUCTEURS
 	public LigneCommande() {

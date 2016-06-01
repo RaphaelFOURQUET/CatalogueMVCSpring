@@ -73,6 +73,10 @@ public class Categorie implements Serializable {
 		return idCategorie;
 	}
 	
+	public void setIdCategorie(Long idCategorie) {
+		this.idCategorie = idCategorie;
+	}
+
 	//CONSTRUCTEURS
 	public Categorie() {
 		

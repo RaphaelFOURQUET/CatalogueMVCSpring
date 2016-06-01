@@ -25,6 +25,12 @@ public class Role {
 	public Long getIdRole() {
 		return idRole;
 	}
+	
+	
+
+	public void setIdRole(Long idRole) {
+		this.idRole = idRole;
+	}
 
 	//CONSTRUCTEURS
 	public Role() {

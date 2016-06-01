@@ -72,6 +72,11 @@ public class Client implements Serializable {
 	}
 
 	
+	
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
+	}
+
 	//CONSTRUCTEURS
 	public Client() {
 		

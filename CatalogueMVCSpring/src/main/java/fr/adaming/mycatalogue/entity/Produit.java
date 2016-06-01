@@ -91,6 +91,12 @@ public class Produit implements Serializable {
 	public void setSelectionne(boolean selectionne) {
 		this.selectionne = selectionne;
 	}
+	
+	
+
+	public void setIdProduit(Long idProduit) {
+		this.idProduit = idProduit;
+	}
 
 	//CONSTRUCTEURS
 	public Produit() {

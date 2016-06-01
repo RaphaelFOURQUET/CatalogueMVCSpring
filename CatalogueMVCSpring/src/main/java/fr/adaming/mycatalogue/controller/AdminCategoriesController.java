@@ -21,7 +21,7 @@ import fr.adaming.mycatalogue.metier.IAdminCategoriesMetier;
 
 @Controller
 @RequestMapping("/adminCat")
-@SessionAttributes({"editedCat","categorie","categories"})
+@SessionAttributes({"editedCat","categorie","categories"})	//MODIF
 public class AdminCategoriesController {
 
 	@Autowired
@@ -37,14 +37,13 @@ public class AdminCategoriesController {
 	@RequestMapping("/saveCat")
 	public String saveCat(@Valid Categorie c,BindingResult bindingResult,
 			Model model,MultipartFile file) throws Exception {
-//		Categorie c = (Categorie) model.asMap().get("categorie");	//MODIF
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("categories", metier.listCategories());
 			return "categories";
 		}
 		if(!file.isEmpty()){c.setPhoto(file.getBytes());}
 		else{
-			if(c.getIdCategorie()!=null){	//TODO est ce que id dans URL ? 
+			if(c.getIdCategorie()!=null){
 				Categorie cat=(Categorie) model.asMap().get("editedCat");
 				c.setPhoto(cat.getPhoto());
 			}
