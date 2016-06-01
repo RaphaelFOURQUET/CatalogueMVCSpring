@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/style.css">
 </head>
-
+<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>
 <div id="formCat" class="cadre">
 	<f:form modelAttribute="categorie" action="saveCat" method="post"
 		enctype="multipart/form-data">

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/style.css">
 </head>
-<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>	<!-- Echapper ? -->
+<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>
 <div class="errors">${exception}</div>
 <div id="formProd" class="cadre">
 	<f:form modelAttribute="produit" action="saveProd" method="post"
