@@ -65,16 +65,20 @@
 		<s:authentication-provider>
 			<!-- <s:password-encoder hash="md5"></s:password-encoder> --> <!-- Comment deviner password apres hash pour mettre dans s:user ? -->
 			<!-- datasourceSID ou dataSource -->
-			<!-- <s:jdbc-user-service data-source-ref="datasource"
+			<s:jdbc-user-service data-source-ref="datasource"
 				users-by-username-query="select userName,password, actived from user where userName=?"
-				authorities-by-username-query="select u.userName, r.roleName from users u, role r, user_role d where u.user_id = d.User_idUser and d.roles_idRole = r.idRole and u.user_name =? " /> -->	<!-- Modif pour table association... ATESTER -->
-			
+				
+ 				authorities-by-username-query="Select u.userName, r.roleName From user u Inner Join user_role d On u.idUser = d.User_idUser Inner Join role r On d.roles_idRole = r.idRole Where u.userName=? " />
+ 				<!-- authorities-by-username-query="select u.userName, r.roleName from user u, role r, user_role d where u.idUser = d.User_idUser and d.roles_idRole = r.idRole and u.userName=? " />  -->
+				<!-- Modif pour table association... ATESTER -->
+		
+
 			<!-- A preciser : seul Admin1 est autorisé à accéder à pattern necessitant ROLE_ADMIN_CAT -->
 			<!-- TOMODIF authorities="ROLE_ADMIN_CAT,ROLE_ADMIN_PROD" -->
-			<s:user-service>
+			<!-- <s:user-service>
 				<s:user name="AdminC" password="0000" authorities="ROLE_ADMIN_CAT"/> 
 				<s:user name="AdminP" authorities="ROLE_ADMIN_PROD" password="0000"/> 
-			</s:user-service>
+			</s:user-service> -->
 			
 		</s:authentication-provider>
 	</s:authentication-manager>
