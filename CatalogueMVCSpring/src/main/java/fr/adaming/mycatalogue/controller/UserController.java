@@ -53,7 +53,7 @@ public class UserController {
 	public String savePanier(@Valid Client c,@Valid Panier p,BindingResult bindingResult,
 			Model model) {
 		metier.enregistrerCommande(p, c);
-		model.addAttribute("client",c);
+		model.addAttribute("client", new Client());
 		model.addAttribute("produits",metier.listproduits());
 		model.addAttribute("categories", metier.listCategories());
 		return "boutique";
