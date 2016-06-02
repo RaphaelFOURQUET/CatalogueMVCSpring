@@ -20,6 +20,7 @@
 			<th>Photo</th>
 		</tr>
 		<c:forEach items="${produits}" var="p">
+			<c:if test="${p.selectionne==true}">
 			<tr>
 				<td>${p.idProduit }</td>
 				<td>${p.designation }</td>
@@ -32,6 +33,7 @@
 				<td><a href="addPanier?idProd=${p.idProduit }">Ajouter au
 						panier</a></td>
 			</tr>
+			</c:if>
 		</c:forEach>
 	</table>
 </div>
