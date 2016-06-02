@@ -58,7 +58,7 @@
 		<s:intercept-url pattern="/adminProd/**" access="ROLE_ADMIN_PROD" />		<!-- /produits/** remplacé par adminProd pour intercepter l acces et obliger un admin à se log ? Oui -->
 		<s:intercept-url pattern="/adminCat/**" access="ROLE_ADMIN_CAT" />			<!-- IDEM -->
 		<s:form-login login-page="/login" default-target-url="/produits/index"
-			authentication-failure-url="/login" />				<!-- /produits/index pour les clients non admin n'existe pas... TODO -->
+			authentication-failure-url="/login" />
 		<s:logout logout-success-url="/logout" />
 	</s:http>
 	<s:authentication-manager>
@@ -78,7 +78,7 @@
 			<!-- <s:user-service>
 				<s:user name="AdminC" password="0000" authorities="ROLE_ADMIN_CAT"/> 
 				<s:user name="AdminP" authorities="ROLE_ADMIN_PROD" password="0000"/> 
-			</s:user-service> -->	<!-- Remplacer 0000 par le code hashéSale par Bcrypt : je les ai genere par /CatalogueMVCSpring/src/main/java/fr/adaming/mycatalogue/bcryptgenerator/CryptageApplication.java -->
+			</s:user-service> -->	<!-- Remplacer 0000 par le code hashéSalé par Bcrypt : je les ai genere par /CatalogueMVCSpring/src/main/java/fr/adaming/mycatalogue/bcryptgenerator/CryptageApplication.java -->
 			
 		</s:authentication-provider>
 	</s:authentication-manager>

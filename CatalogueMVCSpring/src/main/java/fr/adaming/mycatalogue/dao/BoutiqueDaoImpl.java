@@ -25,6 +25,7 @@ public class BoutiqueDaoImpl implements IBoutiqueDao {
 		return c.getIdCategorie();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Categorie> listCategories() {
 		Query req=em.createQuery("select c from Categorie c");
@@ -58,12 +59,14 @@ public class BoutiqueDaoImpl implements IBoutiqueDao {
 		return p.getIdProduit();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Produit> listproduits() {
 		Query req=em.createQuery("select p from Produit p");
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Produit> produitsParMotCle(String mc) {
 		//Renvoie les produits dont le nom ou la description contiennent le mot cle ...
@@ -72,6 +75,7 @@ public class BoutiqueDaoImpl implements IBoutiqueDao {
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Produit> produitsParCategorie(Long idCat) {
 		Query req=em.createQuery("select p from Produit p where p.categorie.idCategorie=:id");
@@ -79,6 +83,7 @@ public class BoutiqueDaoImpl implements IBoutiqueDao {
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Produit> produitsSelectionnes() {
 		Query req=em.createQuery("select p from Produit p where p.selectionne=true");
