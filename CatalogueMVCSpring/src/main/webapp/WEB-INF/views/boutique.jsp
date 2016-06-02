@@ -4,8 +4,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/style.css">
 </head>
-<a href="<c:url value="/j_spring_security_logout" />"> Retour
-	Accueil</a>
+<a href="<c:url value="/j_spring_security_logout" />"> Retour Accueil</a>
 <div class="errors">${exception}</div>
 <div id="tabProduits" class="cadre">
 	<table class="tabStyle1">
@@ -13,30 +12,28 @@
 			<th>ID</th>
 			<th>Désignation</th>
 			<th>Description</th>
-			<th>catégorie</th>
+			<th>Catégorie</th>
 			<th>Prix</th>
 			<th>Quantité</th>
-			<th>Selected</th>
 			<th>Photo</th>
 		</tr>
 		<c:forEach items="${produits}" var="p">
 			<c:if test="${p.selectionne==true}">
-			<tr>
-				<td>${p.idProduit }</td>
-				<td>${p.designation }</td>
-				<td>${p.description }</td>
-				<td>${p.categorie.nomCategorie }</td>
-				<td>${p.prix }</td>
-				<td>${p.quantite }</td>
-				<td>${p.selectionne }</td>
-				<td><img src="photoProd?idProd=${p.idProduit }" /></td>
-				<td><a href="addPanier?idProd=${p.idProduit }">Ajouter au
-						panier</a></td>
-			</tr>
+				<tr>
+					<td>${p.idProduit}</td>
+					<td>${p.designation}</td>
+					<td>${p.description}</td>
+					<td>${p.categorie.nomCategorie}</td>
+					<td>${p.prix}</td>
+					<td>${p.quantite}</td>
+					<td><img src="photoProd?idProd=${p.idProduit}" /></td>
+					<td><a href="addPanier?idProd=${p.idProduit}">Ajouter au panier</a></td>
+				</tr>
 			</c:if>
 		</c:forEach>
 	</table>
 </div>
+
 <h1>Panier</h1>
 <div id="tabPanier" class="cadre">
 	<table class="tabStyle1">
