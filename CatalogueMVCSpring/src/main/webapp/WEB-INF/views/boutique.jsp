@@ -4,7 +4,8 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/style.css">
 </head>
-<a href="<c:url value="/j_spring_security_logout" />"> Retour Accueil</a>
+<a href="<c:url value="/j_spring_security_logout" />"> Retour
+	Accueil</a>
 <div class="errors">${exception}</div>
 <div id="tabProduits" class="cadre">
 	<table class="tabStyle1">
@@ -28,7 +29,8 @@
 				<td>${p.quantite }</td>
 				<td>${p.selectionne }</td>
 				<td><img src="photoProd?idProd=${p.idProduit }" /></td>
-				<td><a href="addPanier?idProd=${p.idProduit }">Ajouter au panier</a></td>
+				<td><a href="addPanier?idProd=${p.idProduit }">Ajouter au
+						panier</a></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -49,4 +51,38 @@
 	</table>
 </div>
 
-<a href="savePanier">TODO :Valider Panier</a>
+<div id="formClient" class="cadre">
+	<f:form modelAttribute="client" action="savePanier" method="post">
+		<table>
+			<tr>
+				<td>ID Client</td>
+				<td>${client.idClient}<f:input type="hidden" path="idClient" /></td>
+				<td><f:errors path="idClient" cssClass="errors">
+					</f:errors></td>
+			</tr>
+			<tr>
+				<td>Nom</td>
+				<td><f:input path="nomClient" /></td>
+				<td><f:errors path="nomClient" cssClass="errors"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Adresse</td>
+				<td><f:input path="adresse" /></td>
+				<td><f:errors path="adresse" cssClass="errors"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><f:input path="email" /></td>
+				<td><f:errors path="email" cssClass="errors"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Telephone</td>
+				<td><f:input path="tel" /></td>
+				<td><f:errors path="tel" cssClass="errors"></f:errors></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Commander"></td>
+			</tr>
+		</table>
+	</f:form>
+</div>

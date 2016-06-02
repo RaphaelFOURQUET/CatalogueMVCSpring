@@ -16,13 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import fr.adaming.mycatalogue.entity.Client;
 import fr.adaming.mycatalogue.entity.Panier;
 import fr.adaming.mycatalogue.entity.Produit;
 import fr.adaming.mycatalogue.metier.IInternauteBoutiqueMetier;
 
 @Controller
 @RequestMapping(value="/produits")
-@SessionAttributes("panier")
+@SessionAttributes({"panier","client"})
 public class UserController {
 	
 	@Autowired
@@ -32,6 +33,7 @@ public class UserController {
 	public String index(Model model){
 		model.addAttribute("panier", new Panier());
 		model.addAttribute("produit",new Produit());
+		model.addAttribute("client", new Client());
 		model.addAttribute("produits",metier.listproduits());
 		model.addAttribute("categories", metier.listCategories());
 		return "boutique";
@@ -48,9 +50,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/savePanier")
-	public String savePanier(@Valid Panier p,BindingResult bindingResult,
+	public String savePanier(@Valid Client c,@Valid Panier p,BindingResult bindingResult,
 			Model model) {
-		//TODO
+		metier.enregistrerCommande(p, c);
+		model.addAttribute("client",c);
 		model.addAttribute("produits",metier.listproduits());
 		model.addAttribute("categories", metier.listCategories());
 		return "boutique";
@@ -59,7 +62,6 @@ public class UserController {
 	@RequestMapping(value="/addPanier")
 	public String addPanier(@Valid Panier p, Long idProd,BindingResult bindingResult,
 			Model model) {
-		//TODO
 		p.addItem(metier.getProduit(idProd), 1);
 		model.addAttribute("panier", p);
 		model.addAttribute("produits",metier.listproduits());

@@ -1,5 +1,6 @@
 package fr.adaming.mycatalogue.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import javax.persistence.Query;
 import fr.adaming.mycatalogue.entity.Categorie;
 import fr.adaming.mycatalogue.entity.Client;
 import fr.adaming.mycatalogue.entity.Commande;
+import fr.adaming.mycatalogue.entity.LigneCommande;
 import fr.adaming.mycatalogue.entity.Panier;
 import fr.adaming.mycatalogue.entity.Produit;
 import fr.adaming.mycatalogue.entity.Role;
@@ -127,7 +129,11 @@ public class BoutiqueDaoImpl implements IBoutiqueDao {
 		em.persist(c);
 		Commande cmd=new Commande();
 		cmd.setClient(c);
+		cmd.setDateCommande(new Date());
 		cmd.setLigneCommandes(p.getItems());
+		for(LigneCommande lc : p.getItems()) {
+			em.persist(lc);
+		}
 		em.persist(cmd);
 		return cmd;
 	}
