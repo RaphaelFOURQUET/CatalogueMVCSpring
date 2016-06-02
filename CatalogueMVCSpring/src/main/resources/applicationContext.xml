@@ -55,10 +55,10 @@
 	</bean> -->
 	
 	<s:http>
-		<s:intercept-url pattern="/adminProd/**" access="ROLE_ADMIN_PROD" />		<!-- /produits/** remplacé par adminProd pour intercepter l acces et obliger un admin à se log ? -->
+		<s:intercept-url pattern="/adminProd/**" access="ROLE_ADMIN_PROD" />		<!-- /produits/** remplacé par adminProd pour intercepter l acces et obliger un admin à se log ? Oui -->
 		<s:intercept-url pattern="/adminCat/**" access="ROLE_ADMIN_CAT" />			<!-- IDEM -->
 		<s:form-login login-page="/login" default-target-url="/produits/index"
-			authentication-failure-url="/login" />				<!-- N'existe pas... TODO -->
+			authentication-failure-url="/login" />				<!-- /produits/index pour les clients non admin n'existe pas... TODO -->
 		<s:logout logout-success-url="/logout" />
 	</s:http>
 	<s:authentication-manager>
