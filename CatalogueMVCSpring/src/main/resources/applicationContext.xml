@@ -78,7 +78,7 @@
 			<!-- <s:user-service>
 				<s:user name="AdminC" password="0000" authorities="ROLE_ADMIN_CAT"/> 
 				<s:user name="AdminP" authorities="ROLE_ADMIN_PROD" password="0000"/> 
-			</s:user-service> -->
+			</s:user-service> -->	<!-- Remplacer 0000 par le code hashéSale par Bcrypt : je les ai genere par u nautre projet utilisant org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; depuis 0000 .-->
 			
 		</s:authentication-provider>
 	</s:authentication-manager>
