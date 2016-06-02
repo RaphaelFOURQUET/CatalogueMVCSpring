@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/css/style.css">
 </head>
-<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>
+<a href="<c:url value="/j_spring_security_logout" />"> Retour Accueil</a>
 <div class="errors">${exception}</div>
 <div id="tabProduits" class="cadre">
 	<table class="tabStyle1">
@@ -27,11 +27,11 @@
 				<td>${p.prix }</td>
 				<td>${p.quantite }</td>
 				<td>${p.selectionne }</td>
-				<td><img src="photoProd?idProd=${p.idProduit }" /></td>	<!-- TODO photoProd A CODER  -->
-<%-- 				<td><a href="suppProd?idProd=${p.idProduit }">Supp</a></td>
-				<td><a href="editProd?idProd=${p.idProduit }">Edit</a></td> --%>
-				<td>TODO : ajouter au panier</td>
+				<td><img src="photoProd?idProd=${p.idProduit }" /></td>
+				<td><a href="addPanier?idProd=${p.idProduit }">TODO : ajouter au panier</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 </div>
+
+<a href="savePanier">TODO :Valider Panier</a>

@@ -11,12 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import fr.adaming.mycatalogue.entity.Produit;
 import fr.adaming.mycatalogue.metier.IInternauteBoutiqueMetier;
 
 @Controller
 @RequestMapping(value="/produits")
+@SessionAttributes("panier")
 public class UserController {
 	
 	@Autowired
