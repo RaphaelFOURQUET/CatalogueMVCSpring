@@ -30,6 +30,7 @@ public class UserController {
 	
 	@RequestMapping(value="/index")
 	public String index(Model model){
+		model.addAttribute("panier", new Panier());
 		model.addAttribute("produit",new Produit());
 		model.addAttribute("produits",metier.listproduits());
 		model.addAttribute("categories", metier.listCategories());
@@ -50,17 +51,17 @@ public class UserController {
 	public String savePanier(@Valid Panier p,BindingResult bindingResult,
 			Model model) {
 		//TODO
-		model.addAttribute("produit",new Produit());
 		model.addAttribute("produits",metier.listproduits());
 		model.addAttribute("categories", metier.listCategories());
 		return "boutique";
 	}
 	
 	@RequestMapping(value="/addPanier")
-	public String addPanier(@Valid Panier p,BindingResult bindingResult,
+	public String addPanier(@Valid Panier p, Long idProd,BindingResult bindingResult,
 			Model model) {
 		//TODO
-		model.addAttribute("produit",new Produit());
+		p.addItem(metier.getProduit(idProd), 1);
+		model.addAttribute("panier", p);
 		model.addAttribute("produits",metier.listproduits());
 		model.addAttribute("categories", metier.listCategories());
 		return "boutique";

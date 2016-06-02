@@ -28,7 +28,22 @@
 				<td>${p.quantite }</td>
 				<td>${p.selectionne }</td>
 				<td><img src="photoProd?idProd=${p.idProduit }" /></td>
-				<td><a href="addPanier?idProd=${p.idProduit }">TODO : ajouter au panier</a></td>
+				<td><a href="addPanier?idProd=${p.idProduit }">Ajouter au panier</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+</div>
+<h1>Panier</h1>
+<div id="tabPanier" class="cadre">
+	<table class="tabStyle1">
+		<tr>
+			<th>Produit</th>
+			<th>Quantite</th>
+		</tr>
+		<c:forEach items="${panier.items}" var="lc">
+			<tr>
+				<td>${lc.produit.designation}</td>
+				<th>${lc.quantite}</th>
 			</tr>
 		</c:forEach>
 	</table>

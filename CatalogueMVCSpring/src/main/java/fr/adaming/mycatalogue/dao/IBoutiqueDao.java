@@ -30,7 +30,7 @@ public interface IBoutiqueDao {
 	public void modifierProduit(Produit p);
 	
 	public void ajouterUser(User u);
-	public void ajouterRole(Role r);	//TODO : Ajout
+	public void ajouterRole(Role r);
 	public void attribuerRole(Role r,Long userID);
 	
 	public Commande enregistrerCommande(Panier p,Client c);

@@ -111,12 +111,12 @@ public class BoutiqueDaoImpl implements IBoutiqueDao {
 	}
 	
 	@Override
-	public void ajouterRole(Role r) {	//TODO : a voir.
+	public void ajouterRole(Role r) {
 		em.persist(r);
 	}
 
 	@Override
-	public void attribuerRole(Role r, Long userID) {	//TODO : solution parait bizarre
+	public void attribuerRole(Role r, Long userID) {
 		User u=em.find(User.class, userID);
 		u.getRoles().add(r);
 		em.merge(u);
