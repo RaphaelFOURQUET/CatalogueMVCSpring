@@ -4,15 +4,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import javax.validation.Valid;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
+import fr.adaming.mycatalogue.entity.Panier;
 import fr.adaming.mycatalogue.entity.Produit;
 import fr.adaming.mycatalogue.metier.IInternauteBoutiqueMetier;
 
@@ -40,6 +45,26 @@ public class UserController {
 				File(System.getProperty("java.io.tmpdir")+"/PROD_"+idProd+"_"+p.getPhoto(
 						));
 		return IOUtils.toByteArray(new FileInputStream(f));
+	}
+	
+	@RequestMapping(value="/savePanier")
+	public String savePanier(@Valid Panier p,BindingResult bindingResult,
+			Model model) {
+		//TODO
+		model.addAttribute("produit",new Produit());
+		model.addAttribute("produits",metier.listproduits());
+		model.addAttribute("categories", metier.listCategories());
+		return "boutique";
+	}
+	
+	@RequestMapping(value="/addPanier")
+	public String addPanier(@Valid Panier p,BindingResult bindingResult,
+			Model model) {
+		//TODO
+		model.addAttribute("produit",new Produit());
+		model.addAttribute("produits",metier.listproduits());
+		model.addAttribute("categories", metier.listCategories());
+		return "boutique";
 	}
 
 }
