@@ -63,7 +63,7 @@
 	</s:http>
 	<s:authentication-manager>
 		<s:authentication-provider>
-			<s:password-encoder hash="bcrypt"></s:password-encoder> <!-- Comment deviner password apres hash pour mettre dans s:user ? -->
+			<s:password-encoder hash="bcrypt"></s:password-encoder> <!-- Comment deviner password apres hash pour mettre dans s:user ? le generer ailleurs depuis un BCrypt password generator -->
 			<!-- datasourceSID ou dataSource -->
 			<s:jdbc-user-service data-source-ref="datasource"
 				users-by-username-query="select userName,password, actived from user where userName=?"
